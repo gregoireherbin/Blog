@@ -1,0 +1,6 @@
+AuthName "Page d'administration protégée"
+AuthType Basic
+AuthUserFile "C:\wamp64\www\OpenClassRoom\TP\Blog\admin\.htpasswd"
+Require valid-user
+DirectoryIndex administration.php index.html /erreurs/erreur_403.php
+
