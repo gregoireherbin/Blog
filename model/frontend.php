@@ -92,8 +92,6 @@ function getLastPosts($postId)
     $req->execute(array($postId));
     
     return $req;
-
-    
  
 }
 

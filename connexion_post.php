@@ -1,6 +1,6 @@
 <?php 
 
-require('model.php');
+require('model/frontend.php');
 
 $db = dbConnect();
 
@@ -17,7 +17,7 @@ $resultat = $req->fetch();
 // Comparaison du pass envoyé via le formulaire avec la base
 $isPasswordCorrect = password_verify($_POST['mdp'], $resultat['pass']);
 
-var_dump($resultat);
+
 
 
     if ($isPasswordCorrect) {
@@ -25,7 +25,7 @@ var_dump($resultat);
         $_SESSION['id'] = $resultat['id'];
         $_SESSION['pseudo'] = $_POST['pseudo'];
         if($_GET['id']){
-           header('location:postView.php?id='.$_GET['id'].'&page=0');
+           header('location:index.php?action=post&id='.$_GET['id'].'&page=0');
          
         }
         else {

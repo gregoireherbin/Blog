@@ -8,8 +8,8 @@ session_start();
 <html>
 <head>
 	<title>Mon Blog</title>
-		<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="styles.css">
+		<link rel="stylesheet" type="text/css" href="public/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="public/css/styles.css">
 </head>
 <body>
 
@@ -59,17 +59,17 @@ while ($donnees = $commentbyfive->fetch())
 
 <nav aria-label="Page navigation example">
   <ul class="pagination">
-    <li class="page-item"><a class="page-link" href="postView.php?id=<?=$_GET['id']?>&page=<?php if ($_GET['page']>0){echo $_GET['page']-1;} else {echo 0;}?>">Précédent</a></li>
+    <li class="page-item"><a class="page-link" href="index.php?action=post&id=<?=$_GET['id']?>&page=<?php if ($_GET['page']>0){echo $_GET['page']-1;} else {echo 0;}?>">Précédent</a></li>
 <?php 
 	$page=0;
 
 	while ($page<$pages){
 ?>
-	<li class="page-item"><a class="page-link" href="postView.php?id=<?=$_GET['id']?>&page=<?=$page?>"><?= $page+1 ?></a></li>
+	<li class="page-item"><a class="page-link" href="index.php?action=post&id=<?=$_GET['id']?>&page=<?=$page?>"><?= $page+1 ?></a></li>
 	<?php $page++;
 	}   
 ?>
-    <li class="page-item"><a class="page-link" href="postView.php?id=<?=$_GET['id']?>&page=<?php if($_GET['page']<(($pages-1))){echo $_GET['page']+1;} else { echo ($pages-1);} ?>">Suivant</a></li>
+    <li class="page-item"><a class="page-link" href="index.php?action=post&id=<?=$_GET['id']?>&page=<?php if($_GET['page']<(($pages-1))){echo $_GET['page']+1;} else { echo ($pages-1);} ?>">Suivant</a></li>
   </ul>
 </nav>
 

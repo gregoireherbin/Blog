@@ -26,7 +26,7 @@ $reponse->execute(array(
 	'author'=>htmlspecialchars($_POST['author']),
 	'comment'=>htmlspecialchars($_POST['comments'])
 	));
-header('location:post.php?id_post='.$_GET['id_post'].'&page='.$_GET['page'].'');
+header('location:postView.php?id='.$_GET['id_post'].'&page='.$_GET['page'].'');
 }
 
 else{
