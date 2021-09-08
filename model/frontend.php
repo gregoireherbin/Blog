@@ -4,15 +4,11 @@
 
 function dbConnect()
 {
-    try
-    {
+       
         $db = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '');
         return $db;
-    }
-    catch(Exception $e)
-    {
-        die('Erreur : '.$e->getMessage());
-    }
+    
+  
 }
 
 
@@ -75,7 +71,7 @@ function getCommentsByFive($postId)
    $db = dbConnect();
    $mini = $_GET['page']*5;
    if ($_GET['page']>=0 ){
-   $req = $db->prepare('SELECT *, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%imin%ss")  AS date_comment FROM comments WHERE id_post=? LIMIT '.$mini.',5');
+   $req = $db->prepare('SELECT *, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%imin%ss")  AS date_comment FROM comments WHERE id_post=? ORDER BY comment_date  LIMIT '.$mini.',5');
    $req->execute(array($postId));
    }
 
@@ -96,3 +92,14 @@ function getLastPosts($postId)
 }
 
 
+// On ajoute un commentaire
+
+function postComment($postId, $author, $comment)
+{
+    $db = dbConnect();
+    $comments = $db->prepare('INSERT INTO comments(id_post, author, comment, comment_date) VALUES(?, ?, ?, NOW())');
+    $affectedLines = $comments->execute(array($postId, $author, $comment));
+
+    return $affectedLines;
+    ;
+}

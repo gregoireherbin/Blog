@@ -9,7 +9,7 @@
           <?php
           if($_SESSION){?><a class="nav-item nav-link" href="#">Connecté</a><a class="nav-item nav-link" href="deconnexion.php">Déconnexion</a><?php }
 
-          else {?><a class="nav-item nav-link" href="connexion.php?id=<?php if($_GET){echo $_GET['id'];}?>&warning=0">Connexion</a><?php }
+          else {?><a class="nav-item nav-link" href="connexion.php?warning=0">Connexion</a><?php }
           ?>
        
         

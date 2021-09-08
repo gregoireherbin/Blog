@@ -1,4 +1,3 @@
-<?php session_start();?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,10 +5,6 @@
 </head>
 	<body>
 		<?php ob_start(); ?>
-		<main class="container">
-			<?php
-			include('header.php');
-			?>
 			<div class="row p-3">
 				<?php
 				$donnees= $posts->fetch();
@@ -22,8 +17,8 @@
 						<div class="col-md-6">
 							<div class="card-body">
 								<h5 class="card-title">
-									<?= htmlspecialchars($donnees['title']).' le '.htmlspecialchars($donnees['creation_date_fr']);?>
-								</h5>
+									<?= htmlspecialchars($donnees['title']).' <h4>le '.htmlspecialchars($donnees['creation_date_fr']);?>
+								</h4></h5>
 								<p class="card-text"><?= htmlspecialchars($donnees['content']);?></p>
 								<a  class="btn btn-primary" href="index.php?action=post&id=<?= $donnees['id'];?>&page=0">Commentaires</a>
 							</div>
@@ -41,21 +36,19 @@
 				while ($donnees = $posts->fetch()){?>	
 					<div class="col-lg-4 col-xs-12 p-3">
 					<?php	
-					include 'affichage_billet.php';
+					include 'includes/affichage_billet.php';
 					?>
 					</div>
 					<?php
 				}
 				?>
 			</div>
-			<?php
-			include('footer.php');
-			?>
-		</main>
+			
+		
 		<?php
-		$content = ob_get_clean(); ?>
-		<?php
-		require('template.php'); 
+		$content = ob_get_clean(); 
+
+		require('view/frontend/template.php'); 
 		?>
 	</body>
 </html>

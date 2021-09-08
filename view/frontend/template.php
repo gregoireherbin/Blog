@@ -3,16 +3,21 @@
     <head>
         <meta charset="utf-8" />
         <title><?= $title ?></title>
-        <link href="style.css" rel="stylesheet" /> 
-        <link rel="stylesheet" type="text/css" href="bootstrap.min.js">
-        <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="styles.css">
+        <link rel="stylesheet" type="text/css" href="public/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="public/css/styles.css">
     </head>
         
     <body>
+        <main class="container">
+            <?php include('includes/header.php'); ?>
 
-        <?=  $content ?>
+            <?=  $content ?>
+            
+            <?php include('includes/footer.php'); ?>
+        </main>
+
     </body>
-    <script src="jquery.js"></script>
-    <script type="text/javascript" src="masonry-docs.min.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="public/js/masonry-docs.min.js"></script>
+    <script type="text/javascript" src="public/js/bootstrap.min.js"></script>
 </html>
